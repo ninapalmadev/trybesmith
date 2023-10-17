@@ -1,6 +1,12 @@
 export type Product = {
-  id: 'fake';
-  name: 'fake';
-  price: 'fake';
-  orderId: 'fake';
+  id: number;
+  name: string;
+  price: number;
+  orderId: number;
+};
+
+export type ProductInput = {
+  id: number;
+  name: string;
+  price: number;
 };
