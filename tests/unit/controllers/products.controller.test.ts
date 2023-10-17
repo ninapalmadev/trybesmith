@@ -48,4 +48,33 @@ describe('ProductsController', function () {
 
     createStub.restore();
   });
+
+  it('should get all products', async function () {
+    const getAllStub = sinon.stub(ProductsService, 'getProducts');
+    getAllStub.resolves({
+      status: 'SUCCESSFUL',
+      data: [
+        {
+          id: 1,
+          name: 'Test Product',
+          price: 100,
+          orderId: 1,
+        },
+      ],
+    });
+
+    await ProductsController.getProducts(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith([
+      {
+        id: 1,
+        name: 'Test Product',
+        price: 100,
+        orderId: 1,
+      },
+    ]);
+
+    getAllStub.restore();
+  });
 });
