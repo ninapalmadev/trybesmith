@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import  ProductsService from '../../../src/service/products.service';
 import  Product from '../../../src/database/models/product.model';
+import productMock from '../../mocks/product.mock';
 
 describe('ProductsService', function () {
   beforeEach(function () { sinon.restore(); });
@@ -18,4 +19,5 @@ describe('ProductsService', function () {
       },
     });
   });
+
 });
